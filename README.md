@@ -11,7 +11,7 @@ Under construction.
 - DNN feature decoding from brain activity
 
 We used the same methodology in our previous study (generic object decoding). 
-Demo programs for Matlab and Python are available in [code/matlab]<https://github.com/KamitaniLab/GenericObjectDecoding/tree/master/code/matlab> and [code/python]<https://github.com/KamitaniLab/GenericObjectDecoding/tree/master/code/python>, respectively.
+Demo programs for Matlab and Python are available in [code/matlab](https://github.com/KamitaniLab/GenericObjectDecoding/tree/master/code/matlab) and [code/python](https://github.com/KamitaniLab/GenericObjectDecoding/tree/master/code/python), respectively.
 See README.md in each directory (in GenericObjectDecoding) for the details.
 
 - Reconstruction algorithm
