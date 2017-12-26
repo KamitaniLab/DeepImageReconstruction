@@ -1,5 +1,5 @@
 # DeepImageReconstruction
-Data and demo codes for Shen, Horikawa, Majima, and Kamitani, "Deep image reconstruction from human brain activity
+Data and demo codes for Shen, Horikawa, Majima, and Kamitani, "Deep image reconstruction from human brain activity".
 
 ## Data (fMRI data and visual features)
 Under construction.
