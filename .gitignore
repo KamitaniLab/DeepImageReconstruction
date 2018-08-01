@@ -3,6 +3,9 @@
 
 *.pyc
 
+*.caffemodel
+
 data*/
+result*/
 results*/
 tmp/
