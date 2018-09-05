@@ -1,0 +1,4 @@
+decoded_vgg19_cnn_feat.mat
+estimated_vgg19_cnn_feat_std.mat
+estimated_vgg19LeakyReluAvePool_cnn_feat_std.mat
+ilsvrc_2012_mean.npy
