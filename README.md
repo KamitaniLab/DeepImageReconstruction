@@ -4,8 +4,14 @@ Data and demo codes for [Shen, Horikawa, Majima, & Kamitani (2017). Deep image r
 
 ## Requirements
 
-- Python 2
+- Python 2.7
 - [icnn](https://github.com/KamitaniLab/icnn)
+- Numpy
+- Scipy
+- Pillow (PIL)
+- Caffe with up-convolutional layer
+    - https://github.com/dosovits/caffe-fr-chairs (Branch: deepsim)
+    - Both CPU and GPU installation are OK
 
 ## Usage
 
