@@ -38,7 +38,7 @@ We provide seven scripts that reproduce main figures in the original paper.
 - 6_reconstruct_alphabet_image.py
     - Reconstructing alphabetical letters shapes from CNN features decoded from the brain; reproducing results in Figure 3(e)
 - 7_reconstruct_imagined_image.py
-    - Reconstructing imagined image from CNN features decoded from the brain; reproducing results in Figure 4(e)
+    - Reconstructing imagined image from CNN features decoded from the brain; reproducing results in Figure 4
 
 ## Data
 
