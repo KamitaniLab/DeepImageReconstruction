@@ -18,7 +18,7 @@ Data and demo codes for [Shen, Horikawa, Majima, & Kamitani (2017). Deep image r
 
 You can skip the feature decoding from brain activity since we provide the decoded DNN features used in the original paper (see [data/README.md](data/README.md)).
 
-We used the same methodology in our previous study for the feature decoding (Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun).
+We used the same methodology in our previous study for the feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
 Demo programs for Matlab and Python are available at <https://github.com/KamitaniLab/GenericObjectDecoding>.
 
 ### Image reconstruction from decoded DNN features
