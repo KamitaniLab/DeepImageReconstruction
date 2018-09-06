@@ -3,10 +3,8 @@
 
 *.pyc
 
-*.caffemodel
-
-data*/
 result*/
 results*/
 tmp/
+
 icnn
