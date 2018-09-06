@@ -44,7 +44,7 @@ feat_std_file = './data/estimated_vgg19_cnn_feat_std.mat'
 feat_std0 = sio.loadmat(feat_std_file)
 
 # Decoded CNN features
-feat_dir = '/home/mu/aoki/work/deeprecon-datapub/decodedfeatures' # the directory where all the decoded CNN features are saved
+feat_dir = './data/decodedfeatures' # the directory where all the decoded CNN features are saved
 stim_type = 'natural'
 net_name = 'VGG19'
 
