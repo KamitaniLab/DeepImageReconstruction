@@ -20,14 +20,14 @@ Data and demo codes for [Shen, Horikawa, Majima, & Kamitani (2017). Deep image r
 1. Download data files from figshare (see [data/README.md](data/README.md)).
 2. Download Caffe networks (see [net/README.md](net/README.md)).
 
-### DNN feature decoding from brain activity
+### CNN feature decoding from brain activity
 
-You can skip the feature decoding from brain activity since we provide the decoded DNN features used in the original paper (see [data/README.md](data/README.md)).
+You can skip the feature decoding from brain activity since we provide the decoded CNN features used in the original paper (see [data/README.md](data/README.md)).
 
 We used the same methodology in our previous study for the feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
 Demo programs for Matlab and Python are available at <https://github.com/KamitaniLab/GenericObjectDecoding>.
 
-### Image reconstruction from decoded DNN features
+### Image reconstruction from decoded CNN features
 
 We provide seven scripts that reproduce main figures in the original paper.
 
@@ -50,3 +50,41 @@ We provide seven scripts that reproduce main figures in the original paper.
 
 - fMRI data: Deep Image Reconstruction@OpenNeuro (coming soon)
 - Decoded CNN features: [Deep Image Reconstruction@figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577)
+
+## Notes
+
+### Enable back-propagation in the CNNs
+
+In the demo code, we use pre-trained VGG19 model (http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel) and pre-trained deep generator network (DGN; https://lmb.informatik.uni-freiburg.de/resources/binaries/arxiv2016_alexnet_inversion_with_gans/release_deepsim_v0.zip; [Dosovitskiy & Brox, 2016, Generating Images with Perceptual Similarity Metrics based on Deep Networks. arXiv.](https://arxiv.org/abs/1602.02644)).
+In order to make back-propagation work, one line should be added to the prototxt files (the file describes the configuration of the CNN model):
+
+`force_backward: true`.
+
+### CNN features before or after ReLU
+
+In our study, we define CNN features of conv layers or fc layers as the output immediately after the convolutional or fully-connected computation, before applying the Rectified-Linear-Unit (ReLU).
+However, as default setting, ReLU operation is an in-place computation, which will override the CNN features we need.
+In order to use the CNN features before the ReLU operation, we need to modify the prototxt file.
+Taking the VGG19 prototxt file as an example:
+
+In the original prototxt file, ReLU is in-place computation:
+
+```
+layers {
+  bottom: "conv1_1"
+  top: "conv1_1"
+  name: "relu1_1"
+  type: RELU
+}
+```
+
+Now, we modify it as:
+
+```
+layers {
+  bottom: "conv1_1"
+  top: "relu1_1"
+  name: "relu1_1"
+  type: RELU
+}
+```
