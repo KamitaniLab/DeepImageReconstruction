@@ -9,4 +9,4 @@ The script, `downloaddata.sh`, will download all required data for the example c
 - estimated_vgg19_cnn_feat_std.mat
 - estimated_vgg19LeakyReluAvePool_cnn_feat_std.mat
 - ilsvrc_2012_mean.npy
-- Decoded features (decodedfeatures-*.zip files; coming soon)
+- Decoded features (decodedfeatures-*.zip files)
