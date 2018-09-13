@@ -34,7 +34,11 @@ for line in `cat $FILE_LIST`; do
     curl -o $fname $dlurl
 
     # Validate the downloaded file
-    checksum_dl=$(md5 -q $fname)
+    if [ "$OSTYPE" = "linux-gnu" ]; then
+        checksum_dl=$(md5sum $fname | awk '{print $1}')
+    else
+        checksum_dl=$(md5 -q $fname)
+    fi
 
     if [ "$checksum" != "$checksum_dl" ]; then
         echo "Downloaded file is invalid!"
