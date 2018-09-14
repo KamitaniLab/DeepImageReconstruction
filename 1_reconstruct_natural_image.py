@@ -42,7 +42,7 @@ output_layer_gen = 'deconv0'  # Output layer for generator net
 
 # Feature size for input layer of the generator net
 feat_size_gen = net_gen.blobs[input_layer_gen].data.shape[1:]
-num_of_unit = net_gen.blobs[input_layer_gen].data.size
+num_of_unit = net_gen.blobs[input_layer_gen].data[0].size
 
 # Upper bound for input layer of the generator net
 bound_file = './data/act_range/3x/fc7.txt'
