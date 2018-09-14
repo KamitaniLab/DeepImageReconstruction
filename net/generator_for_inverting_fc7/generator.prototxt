@@ -342,7 +342,7 @@ layer {
   name: "deconv0"           
   type: "Deconvolution"
   bottom: "relu_deconv1"
-  top: "deconv0"
+  top: "generated"
   param {
     lr_mult: 1
     decay_mult: 0
