@@ -69,8 +69,8 @@ subjects = ['S1', 'S2', 'S3']
 
 rois_list = ['VC']
 
-# The image used in Figure 2(a), the image label can be from 1 to 50 for natural images in test data
-image_label_list = [4, 9, 2, 36, 45, 16]
+# The image used in Figure 2, the image label can be from 1 to 50 for natural images in test data
+image_label_list = [9, 2, 1, 5, 36, 45, 31, 43]
 
 # Make folder for saving the results
 save_dir = './result'

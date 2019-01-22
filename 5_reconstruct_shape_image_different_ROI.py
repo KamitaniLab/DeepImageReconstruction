@@ -56,7 +56,7 @@ subjects = ['S1', 'S2', 'S3']
 
 rois_list = ['V1', 'V2', 'V3', 'V4', 'HVC', 'VC']
 
-# The image used in Figure 3(c), the image label can be from 1 to 40 for colored artificial shape images in test data
+# The image used in Figure 7A, the image label can be from 1 to 40 for colored artificial shape images in test data
 image_label_list = [4, 8, 11]
 
 # Make folder for saving the results

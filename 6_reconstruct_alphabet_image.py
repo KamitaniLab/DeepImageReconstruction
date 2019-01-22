@@ -56,8 +56,8 @@ subjects = ['S1', 'S2', 'S3']
 
 rois_list = ['VC']
 
-# The image used in Figure 3(e), the image label can be from 1 to 10 for alphabetical letter images in test data
-image_label_list = range(1, 11)
+# The image used in Figure 6B, the image label can be from 1 to 10 for alphabetical letter images in test data
+image_label_list = [5, 3, 10, 7, 6]
 
 # Make folder for saving the results
 save_dir = './result'

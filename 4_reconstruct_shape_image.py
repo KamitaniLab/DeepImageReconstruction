@@ -56,8 +56,8 @@ subjects = ['S1', 'S2', 'S3']
 
 rois_list = ['VC']
 
-# The image used in Figure 3(a), the image label can be from 1 to 40 for colored artificial shape images in test data
-image_label_list = range(1, 41)
+# The image used in Figure 6A, the image label can be from 1 to 40 for colored artificial shape images in test data
+image_label_list = range(1, 16)
 
 # Make folder for saving the results
 save_dir = './result'

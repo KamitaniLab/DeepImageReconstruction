@@ -70,7 +70,7 @@ layer_combinations = {
     'layers_1to7': layer_set1 + layer_set2 + layer_set3 + layer_set4 + layer_set5 + layer_set6 + layer_set7
 }
 
-# The image used in Figure 2(d), the image label can be from 1 to 50 for natural images in test data
+# The image used in Figure 4, the image label can be from 1 to 50 for natural images in test data
 image_label_list = [16, 36, 42]
 
 # Make folder for saving the results
