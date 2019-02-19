@@ -56,7 +56,7 @@ We provide seven scripts that reproduce main figures in the original paper.
 
 ### Enable back-propagation in the DNNs
 
-In the demo code, we use pre-trained [VGG19](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel) and pre-trained [deep generator network (DGN)](https://lmb.informatik.uni-freiburg.de/resources/binaries/arxiv2016_alexnet_inversion_with_gans/release_deepsim_v0.zip; [Dosovitskiy & Brox, 2016, Generating Images with Perceptual Similarity Metrics based on Deep Networks. arXiv.](https://arxiv.org/abs/1602.02644).
+In the demo code, we use pre-trained [VGG19](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel) and pre-trained [deep generator network (DGN)](https://lmb.informatik.uni-freiburg.de/resources/binaries/arxiv2016_alexnet_inversion_with_gans/release_deepsim_v0.zip) ([Dosovitskiy & Brox, 2016, Generating Images with Perceptual Similarity Metrics based on Deep Networks. arXiv.](https://arxiv.org/abs/1602.02644)).
 To enable make back-propagation, the following line should be added to the prototxt files (the file describes the configuration of the DNN):
 
 ```
