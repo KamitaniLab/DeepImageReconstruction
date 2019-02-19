@@ -1,6 +1,7 @@
 # Deep Image Reconstruction
 
-Data and demo codes for [Shen, Horikawa, Majima, & Kamitani (2017). Deep image reconstruction from human brain activity. bioRxiv](https://www.biorxiv.org/content/early/2017/12/30/240317).
+Data and demo code for [Shen, Horikawa, Majima, and Kamitani (2019) Deep image reconstruction from human brain activity. PLOS Computational Biology](http://dx.doi.org/10.1371/journal.pcbi.1006633).
+The preprint is availabe at bioRxiv ([Shen et al., 2017, Deep image reconstruction from human brain activity](https://www.biorxiv.org/content/early/2017/12/30/240317)).
 
 ## Requirements
 
@@ -20,11 +21,11 @@ Data and demo codes for [Shen, Horikawa, Majima, & Kamitani (2017). Deep image r
 1. Download data files from figshare (see [data/README.md](data/README.md)).
 2. Download Caffe networks (see [net/README.md](net/README.md)).
 
-### CNN feature decoding from brain activity
+### DNN feature decoding from brain activity
 
-You can skip the feature decoding from brain activity since we provide the decoded CNN features used in the original paper (see [data/README.md](data/README.md)).
+You can skip the feature decoding from brain activity since we provide the decoded DNN features used in the original paper (see [data/README.md](data/README.md)).
 
-We used the same methodology in our previous study for the feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
+We used the same methodology in our previous study for the DNN feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
 Demo programs for Matlab and Python are available at <https://github.com/KamitaniLab/GenericObjectDecoding>.
 
 ### Image reconstruction from decoded CNN features
@@ -32,19 +33,19 @@ Demo programs for Matlab and Python are available at <https://github.com/Kamitan
 We provide seven scripts that reproduce main figures in the original paper.
 
 - 1_reconstruct_natural_image.py
-    - Reconstructing natural images from the CNN features decoded from the brain with deep generator network (DGN); reproducing results in Figure 2(a)
+    - Reconstructing natural images from the CNN features decoded from the brain with deep generator network (DGN); reproducing results in Figure 2.
 - 2_reconstruct_natural_image_without_DGN.py
-    - Reconstructing natural images from CNN features decoded from the brain without deep generator network (DGN); reproducing results in Figure 2(b)
+    - Reconstructing natural images from CNN features decoded from the brain without deep generator network (DGN); reproducing results in Figure 3A.
 - 3_reconstruct_natural_image_different_combinations_of_CNN_layers.py
-    - Reconstructing natural images from CNN features decoded from the brain with different combinations of CNN layers; reproducing results in Figure 2(d)
+    - Reconstructing natural images from CNN features decoded from the brain with different combinations of CNN layers; reproducing results in Figure 4.
 - 4_reconstruct_shape_image.py
-    - Reconstructing colored artificial shapes from CNN features decoded from the brain; reproducing results in Figure 3(a)
+    - Reconstructing colored artificial shapes from CNN features decoded from the brain; reproducing results in Figure 6A.
 - 5_reconstruct_shape_image_different_ROI.py
-    - Reconstructing colored artificial shapes from CNN features decoded from multiple visual areas in the brain; reproducing results in Figure 3(c)
+    - Reconstructing colored artificial shapes from CNN features decoded from multiple visual areas in the brain; reproducing results in Figure 7A.
 - 6_reconstruct_alphabet_image.py
-    - Reconstructing alphabetical letters shapes from CNN features decoded from the brain; reproducing results in Figure 3(e)
+    - Reconstructing alphabetical letters shapes from CNN features decoded from the brain; reproducing results in Figure 6B.
 - 7_reconstruct_imagined_image.py
-    - Reconstructing imagined image from CNN features decoded from the brain; reproducing results in Figure 4
+    - Reconstructing imagined image from CNN features decoded from the brain; reproducing results in Figure 8.
 
 ## Data
 
@@ -53,21 +54,22 @@ We provide seven scripts that reproduce main figures in the original paper.
 
 ## Notes
 
-### Enable back-propagation in the CNNs
+### Enable back-propagation in the DNNs
 
-In the demo code, we use pre-trained VGG19 model (http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel) and pre-trained deep generator network (DGN; https://lmb.informatik.uni-freiburg.de/resources/binaries/arxiv2016_alexnet_inversion_with_gans/release_deepsim_v0.zip; [Dosovitskiy & Brox, 2016, Generating Images with Perceptual Similarity Metrics based on Deep Networks. arXiv.](https://arxiv.org/abs/1602.02644)).
-In order to make back-propagation work, one line should be added to the prototxt files (the file describes the configuration of the CNN model):
+In the demo code, we use pre-trained [VGG19](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel) and pre-trained [deep generator network (DGN)](https://lmb.informatik.uni-freiburg.de/resources/binaries/arxiv2016_alexnet_inversion_with_gans/release_deepsim_v0.zip; [Dosovitskiy & Brox, 2016, Generating Images with Perceptual Similarity Metrics based on Deep Networks. arXiv.](https://arxiv.org/abs/1602.02644).
+To enable make back-propagation, the following line should be added to the prototxt files (the file describes the configuration of the DNN):
 
-`force_backward: true`.
+```
+force_backward: true
+```
 
-### CNN features before or after ReLU
+### Get DNN features before ReLU
 
-In our study, we define CNN features of conv layers or fc layers as the output immediately after the convolutional or fully-connected computation, before applying the Rectified-Linear-Unit (ReLU).
-However, as default setting, ReLU operation is an in-place computation, which will override the CNN features we need.
-In order to use the CNN features before the ReLU operation, we need to modify the prototxt file.
-Taking the VGG19 prototxt file as an example:
+In our study, we defined DNN features of conv layers or fc layers as the output immediately after the convolutional or fully-connected computation (i.e., before applying the Rectified-Linear-Unit (ReLU)).
+However, as default setting of the pre-trained DNNs, ReLU operation is an in-place computation, which will override the DNN features we need.
+To In order to use the DNN features before the ReLU operation, you need to modify the prototxt file as below (taking the VGG19 prototxt file as an example).
 
-In the original prototxt file, ReLU is in-place computation:
+Original:
 
 ```
 layers {
@@ -78,7 +80,7 @@ layers {
 }
 ```
 
-Now, we modify it as:
+Modified:
 
 ```
 layers {
