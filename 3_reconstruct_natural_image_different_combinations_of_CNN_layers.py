@@ -96,9 +96,9 @@ feat_std0 = sio.loadmat(feat_std_file)
 
 # Setup results directory ----------------------------------------------------
 
-save_dir = os.path.join(results_dir, os.path.splitext(__file__)[0] + '_' + datetime.now().strftime('%Y%m%dT%H%M%S'))
-if not os.path.exists(save_dir):
-    os.makedirs(save_dir)
+save_dir_root = os.path.join(results_dir, os.path.splitext(__file__)[0])
+if not os.path.exists(save_dir_root):
+    os.makedirs(save_dir_root)
 
 # Set reconstruction options -------------------------------------------------
 
@@ -117,7 +117,7 @@ opts = {
 }
 
 # Save the optional parameters
-with open(os.path.join(save_dir, 'options.pkl'), 'w') as f:
+with open(os.path.join(save_dir_root, 'options.pkl'), 'w') as f:
     pickle.dump(opts, f)
 
 # Reconstrucion --------------------------------------------------------------
@@ -129,6 +129,10 @@ for subject, roi, image_label, (layers_set, layers) in product(subjects_list, ro
     print('ROI:         ' + roi)
     print('Image label: ' + image_label)
     print('')
+
+    save_dir = os.path.join(save_dir_root, layers_set, subject, roi)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
 
     # Load the decoded CNN features
     features = {}
@@ -160,7 +164,7 @@ for subject, roi, image_label, (layers_set, layers) in product(subjects_list, ro
     opts.update({'layer_weight': layer_weight})
 
     # Reconstruction
-    snapshots_dir = os.path.join(save_dir, 'snapshots_%s-%s-%s' % (subject, roi, layers_set), 'image-%s' % image_label)
+    snapshots_dir = os.path.join(save_dir, 'snapshots', 'image-%s' % image_label)
     recon_img, loss_list = reconstruct_image(features, net,
                                              save_intermediate=True,
                                              save_intermediate_path=snapshots_dir,
@@ -169,14 +173,14 @@ for subject, roi, image_label, (layers_set, layers) in product(subjects_list, ro
     # Save the results
 
     # Save the raw reconstructed image
-    save_name = 'recon_img' + '-' + subject + '-' + roi + '-' + layers_set + '-' + image_label + '.mat'
+    save_name = 'recon_img' + '-' + image_label + '.mat'
     sio.savemat(os.path.join(save_dir, save_name), {'recon_img': recon_img})
 
     # To better display the image, clip pixels with extreme values (0.02% of
     # pixels with extreme low values and 0.02% of the pixels with extreme high
     # values). And then normalise the image by mapping the pixel value to be
     # within [0,255].
-    save_name = 'recon_img' + '-' + subject + '-' + roi + '-' + layers_set + '-' + image_label + '.jpg'
+    save_name = 'recon_img_normalized' + '-' + image_label + '.jpg'
     PIL.Image.fromarray(normalise_img(clip_extreme_value(recon_img, pct=0.04))).save(os.path.join(save_dir, save_name))
 
 print('Done')
