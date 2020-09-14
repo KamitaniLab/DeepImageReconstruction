@@ -26,7 +26,7 @@ The preprint is availabe at bioRxiv ([Shen et al., 2017, Deep image reconstructi
 You can skip the feature decoding from brain activity since we provide the decoded DNN features used in the original paper (see [data/README.md](data/README.md)).
 
 We used the same methodology in our previous study for the DNN feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
-Demo programs for Matlab and Python are available at <https://github.com/KamitaniLab/GenericObjectDecoding>.
+Python code for the DNN feature decoding is available at [GitHub:KamitaniLab/dnn-feature-decoding](https://github.com/KamitaniLab/dnn-feature-decoding).
 
 ### Image reconstruction from decoded CNN features
 
