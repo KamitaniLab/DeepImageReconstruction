@@ -49,8 +49,8 @@ We provide seven scripts that reproduce main figures in the original paper.
 
 ## Data
 
-- fMRI data: [Deep Image Reconstruction@OpenNeuro](https://openneuro.org/datasets/ds001506)
-- Decoded CNN features: [Deep Image Reconstruction@figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577)
+- Raw fMRI data: [Deep Image Reconstruction@OpenNeuro](https://openneuro.org/datasets/ds001506)
+- Preprocessed fMRI data and decoded CNN features: [Deep Image Reconstruction@figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577)
 
 ## Notes
 
