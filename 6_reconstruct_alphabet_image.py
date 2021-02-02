@@ -169,6 +169,6 @@ for subject, roi, image_label in product(subjects_list, rois_list, image_label_l
     # values). And then normalise the image by mapping the pixel value to be
     # within [0,255].
     save_name = 'recon_img_normalized' + '-' + image_label + '.jpg'
-    PIL.Image.fromarray(normalise_img(clip_extreme_value(recon_img, pct=0.04))).save(os.path.join(save_dir, save_name))
+    PIL.Image.fromarray(normalise_img(clip_extreme_value(recon_img, pct=4))).save(os.path.join(save_dir, save_name))
 
 print('Done')
