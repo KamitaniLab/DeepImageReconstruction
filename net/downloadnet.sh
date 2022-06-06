@@ -36,7 +36,7 @@ fi
 # VGG19
 if [ "$target" = 'vgg19' ]; then
     output=VGG_ILSVRC_19_layers/VGG_ILSVRC_19_layers.caffemodel
-    srcurl=http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel
+    srcurl=https://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel
 
     [ -f $output ] && echo "$output already exists." && exit 0
     
@@ -56,7 +56,7 @@ if [ "$target" = 'deepsim' ]; then
     [ -f deepsim_v0.zip ] || download_file $srcurl deepsim_v0.zip
     [ -d deepsim_v0 ] || unzip deepsim_v0.zip
     [ -d $(dirname $output) ] || mkdir $(dirname $output)
-    cp deepsim_v0/fc7/generator.caffemodel $output
+    cp release_deepsim_v0/fc7/generator.caffemodel $output
 
     echo "$output saved."
     exit 0
