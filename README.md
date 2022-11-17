@@ -26,7 +26,7 @@ The preprint is availabe at bioRxiv ([Shen et al., 2017, Deep image reconstructi
 You can skip the feature decoding from brain activity since we provide the decoded DNN features used in the original paper (see [data/README.md](data/README.md)).
 
 We used the same methodology in our previous study for the DNN feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
-Python code for the DNN feature decoding is available at [GitHub:KamitaniLab/dnn-feature-decoding](https://github.com/KamitaniLab/dnn-feature-decoding).
+The latest Python code for the DNN feature decoding is available at [GitHub:KamitaniLab/brain-decoding-cookbook-public](https://github.com/KamitaniLab/brain-decoding-cookbook-public).
 
 ### Image reconstruction from decoded CNN features
 
@@ -46,6 +46,8 @@ We provide seven scripts that reproduce main figures in the original paper.
     - Reconstructing alphabetical letters shapes from CNN features decoded from the brain; reproducing results in Figure 6B.
 - 7_reconstruct_imagined_image.py
     - Reconstructing imagined image from CNN features decoded from the brain; reproducing results in Figure 8.
+
+PyTorch implementation of the reconstruction is available at [GitHub:KamitaniLab/brain-decoding-cookbook-public](https://github.com/KamitaniLab/brain-decoding-cookbook-public).
 
 ## Data
 
