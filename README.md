@@ -1,5 +1,8 @@
 # Deep Image Reconstruction
 
+**Note: This demo code works with Python 2 and Caffe. Example code for the reconstruction with Python 3 + PyTorch is available at [brain-decoding-cookbook-public](https://github.com/KamitaniLab/brain-decoding-cookbook-public/tree/main/reconstruction).**
+
+
 Data and demo code for [Shen, Horikawa, Majima, and Kamitani (2019) Deep image reconstruction from human brain activity. PLOS Computational Biology](https://doi.org/10.1371/journal.pcbi.1006633).
 The preprint is availabe at bioRxiv ([Shen et al., 2017, Deep image reconstruction from human brain activity](https://www.biorxiv.org/content/early/2017/12/30/240317)).
 
