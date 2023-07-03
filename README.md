@@ -6,7 +6,15 @@
 Data and demo code for [Shen, Horikawa, Majima, and Kamitani (2019) Deep image reconstruction from human brain activity. PLOS Computational Biology](https://doi.org/10.1371/journal.pcbi.1006633).
 The preprint is availabe at bioRxiv ([Shen et al., 2017, Deep image reconstruction from human brain activity](https://www.biorxiv.org/content/early/2017/12/30/240317)).
 
-## Requirements
+## Dataset
+
+- Raw fMRI data: [Deep Image Reconstruction@OpenNeuro](https://openneuro.org/datasets/ds001506)
+- Preprocessed fMRI data, DNN features extracted from images, and decoded DNN features: [Deep Image Reconstruction@figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577)
+- Visual images: upon requeset via <https://forms.gle/ujvA34948Xg49jdn9>
+
+## Code
+
+### Requirements
 
 - Python 2.7
 - [icnn](https://github.com/KamitaniLab/icnn)
@@ -17,21 +25,21 @@ The preprint is availabe at bioRxiv ([Shen et al., 2017, Deep image reconstructi
     - https://github.com/dosovits/caffe-fr-chairs (Branch: deepsim)
     - Both CPU and GPU installation are OK
 
-## Usage
+### Usage
 
-### Preparation
+#### Preparation
 
 1. Download data files from figshare (see [data/README.md](data/README.md)).
 2. Download Caffe networks (see [net/README.md](net/README.md)).
 
-### DNN feature decoding from brain activity
+#### DNN feature decoding from brain activity
 
 You can skip the feature decoding from brain activity since we provide the decoded DNN features used in the original paper (see [data/README.md](data/README.md)).
 
 We used the same methodology in our previous study for the DNN feature decoding ([Horikawa & Kamitani, 2017, Generic decoding of seen and imagined objects using hierarchical visual features, Nat Commun.](https://www.nature.com/articles/ncomms15037)).
 The latest Python code for the DNN feature decoding is available at [GitHub:KamitaniLab/brain-decoding-cookbook-public](https://github.com/KamitaniLab/brain-decoding-cookbook-public).
 
-### Image reconstruction from decoded CNN features
+#### Image reconstruction from decoded CNN features
 
 We provide seven scripts that reproduce main figures in the original paper.
 
@@ -51,11 +59,6 @@ We provide seven scripts that reproduce main figures in the original paper.
     - Reconstructing imagined image from CNN features decoded from the brain; reproducing results in Figure 8.
 
 PyTorch implementation of the reconstruction is available at [GitHub:KamitaniLab/brain-decoding-cookbook-public](https://github.com/KamitaniLab/brain-decoding-cookbook-public).
-
-## Data
-
-- Raw fMRI data: [Deep Image Reconstruction@OpenNeuro](https://openneuro.org/datasets/ds001506)
-- Preprocessed fMRI data and decoded CNN features: [Deep Image Reconstruction@figshare](https://figshare.com/articles/Deep_Image_Reconstruction/7033577)
 
 ## Notes
 
